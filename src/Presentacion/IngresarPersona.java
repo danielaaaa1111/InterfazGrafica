@@ -15,6 +15,12 @@ public class IngresarPersona extends JFrame {
     private JButton btnGuardar;
     private JLabel lblIdioma;
     private JComboBox cmbIdioma;
+    private JCheckBox chbTerminos;
+    private JLabel lblGenero;
+    private JRadioButton rbtFemenio;
+    private JRadioButton rbtMasculino;
+    private JRadioButton rbtOtro;
+    private JRadioButton rbtNoindica;
 
     public IngresarPersona (){
         this.setContentPane(plnPrincipal);
@@ -29,11 +35,22 @@ public class IngresarPersona extends JFrame {
                 String nombre = txtNombre.getText();
                 String apellido = txtApellido.getText();
                 String Idioma = cmbIdioma.getSelectedItem().toString();
+                String aceptoTerminos = (chbTerminos.isSelected()== true)? "si" : "no";
+                String genero = ( rbtMasculino.isSelected())? "Masculino":
+                        (rbtFemenio.isSelected())? "Femenino":
+                         (rbtOtro.isSelected())? "Otro":
+                         (rbtNoindica.isSelected())? "No indica": "";
 
                 String mensaje = "Tusatos son :  " + " \n "+
                         "Codigo: " + codigo + "\n " +
                         "Nombre: " + nombre + " \n " +
-                        "Apellido " + apellido ;
+                        "Apellido " + apellido + " \n "+
+                        "Idioma : " + Idioma + " \n "+
+                        "Genero : " + genero + " \n "+
+                        "Acepto terminos : " + aceptoTerminos;
+
+
+
                 JOptionPane.showMessageDialog(btnGuardar,  "Hola");
             }
         });
